@@ -1,0 +1,19 @@
+extends layout
+
+block layout-content
+  div.View.WelcomeView
+    .container
+      h1.Banner.mb-4 Looking For Something To Do?
+    .container
+      .row.text-center.mt-2
+        .col-6
+          h1 🍲 Food 🥡
+        .col-6
+          h1 🏌️‍♀️ Activites 🚴
+      .row
+        .col-6
+          .foodList(style="overflow-y: scroll; max-height: 535px;")
+        .col-6
+          .activitiesList(style="overflow-y: scroll; max-height: 535px;")
+  link(rel='stylesheet', href='/stylesheets/mainpage.css', type='text/css')
+  script(src="/javascripts/mainpage.js")

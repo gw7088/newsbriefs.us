@@ -1,0 +1,70 @@
+.View.WelcomeView{
+    background: url("/images/money.jpeg") no-repeat center;
+    background-size: cover;
+}
+
+/** Title Font */
+.enter-title{
+    text-align: center;
+    /* margin-bottom: 30px; */
+    color: gold;
+    font-weight: bolder;
+}
+.text-responsive {
+    font-size: calc(100% + 1vw + 1vh);
+}
+.timeBox{
+  background-color: rgb(41 153 41 / .65);
+  border-radius: 15px;
+  border: var(--ui-shadow-border);
+  box-shadow: var(--ui-shadow);
+  width: 35vh;
+  display: none;
+}
+.time {
+  font-family: math;
+  font-weight: bold;
+  color: #6b2106;
+}
+
+
+/** Form styling */
+.form-enter {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  background-color: rgb(41 153 41 / .65);
+  border-radius: 15px;
+  border: var(--ui-shadow-border);
+  box-shadow: var(--ui-shadow);
+
+}
+.form-enter .checkbox {
+  font-weight: 400;
+}
+.form-enter .form-control {
+  position: relative;
+  box-sizing: border-box;
+  height: auto;
+  padding: 10px;
+  font-size: 16px;
+}
+.form-enter .form-control:focus {
+  z-index: 2;
+}
+.form-enter input[type="email"] {
+  margin-bottom: -1px;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.form-enter input[type="password"] {
+  margin-bottom: 10px;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.form-enter .submit{
+    background-color:#2753a5; 
+    color:white;
+    font-weight: bold;
+}

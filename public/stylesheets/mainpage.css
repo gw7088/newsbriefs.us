@@ -1,0 +1,24 @@
+.b-card{
+    background-color:lightgray; 
+    padding:5px; 
+    border-bottom: var(--ui-shadow-border);
+    box-shadow: var(--ui-shadow);
+}
+
+.b-name{
+    font-size:x-large;
+    font-family: 'Raleway';
+}
+
+.b-price{
+    margin-right:10px;
+}
+.b-rating{
+
+}
+
+.View.WelcomeView{
+    display: block;
+    /* background: url("/images/money.jpeg") no-repeat center; */
+    /* background-size: cover; */
+}

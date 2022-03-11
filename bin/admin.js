@@ -6,7 +6,11 @@ const
     UIDGenerator = require('uid-generator'),
     uidgen = new UIDGenerator(),
     path = require('path'),
-    fs = require('fs')
+    fs = require('fs'),
+    { JSDOM } = require( "jsdom" ),
+    { window } = new JSDOM( "" ),
+    $ = require( "jquery" )( window ),
+    puppeteer = require('puppeteer')
 ;
 
 module.exports = class Admin extends Utils{
@@ -108,5 +112,81 @@ module.exports = class Admin extends Utils{
                 return callback(self.simpleSuccess('Registration request complete',options));
             });    
         });
+    }
+
+
+    /**
+     * Gets news data from here...
+     */
+    grab_news_data_npr = async () => {
+        let browser = await puppeteer.launch({headless:true});
+        let page = await browser.newPage();
+
+        await page.setViewport({ width: 1100, height: 800 })
+        await page.goto(`https://www.npr.org/sections/news/`,{waitUntil:'networkidle0'});
+
+        await page.waitForSelector('#overflow');
+
+        let titles = [];
+        let topics = [];
+        let teasers = [];
+        let pictures = [];
+
+        // Get Topics
+        topics = await page.evaluate(() => {
+            let results = [];
+            let items = document.querySelectorAll('h3.slug');
+            items.forEach((item) => {
+                results.push(item.innerText);
+            });
+            return results;
+        });
+        // Get Titles
+        titles = await page.evaluate(() => {
+            let results = [];
+            let items = document.querySelectorAll('h2.title');
+            items.forEach((item) => {
+                results.push(item.innerText);
+            });
+            return results;
+        });
+        // Get Teasers
+        teasers = await page.evaluate(() => {
+            let results = [];
+            let items = document.querySelectorAll('p.teaser');
+            items.forEach((item) => {
+                results.push(item.innerText);
+            });
+            return results;
+        });
+        // pictures = await page.evaluate(() => {
+        //     let results = [];
+        //     let items = document.querySelectorAll('h2.title');
+        //     items.forEach((item) => {
+        //         results.push({
+        //             // url:  item.getAttribute('href'),
+        //             text: item.innerText,
+        //         });
+        //     });
+        //     return results;
+        // });
+
+        let articles = {};
+        for(var i in titles){
+            let article = {
+                topic:topics[i],
+                title:titles[i],
+                teaser:teasers[i],
+            };
+            if(!articles[i]) articles[i] = article;
+        }
+
+        let jsonArticles = JSON.stringify(articles);
+        fs.writeFile(path.resolve('articles.json'), jsonArticles, 'utf8', function (err) {
+            if (err) {
+                console.log(err);
+                return 'false';
+            }
+        });    
     }
 }

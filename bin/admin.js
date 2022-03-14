@@ -81,36 +81,19 @@ module.exports = class Admin extends Utils{
         });
     }
 
-    register_user(options,callback){
+    load_articles(options,callback){
         let self=this;
         if (typeof callback!='function') callback = function(){};
         
-        var registered_ppl;
+        var articles;
         // -----> Give me the list off registered ppl
-        fs.readFile(path.resolve('registered.json'), function (error, content) {
+        fs.readFile(path.resolve('articles.json'), function (error, content) {
             if(error){
                 // console.log(error);
-                return callback(self.simpleFail('Error registering'));
+                return callback(self.simpleFail('Error loading articles'));
             }
-            registered_ppl = JSON.parse(content);
-
-            // To add or not to add
-            if(!registered_ppl[options.email]){
-                registered_ppl[options.email] = options;
-            }
-            else{
-                return callback(self.simpleFail('Already registered'));
-            }
-
-            // -----> Register them peeps
-            var jsonContent = JSON.stringify(registered_ppl);
-            fs.writeFile(path.resolve('registered.json'), jsonContent, 'utf8', function (err) {
-                if (err) {
-                    // console.log(err);
-                    return callback(self.simpleFail('Error registering'));
-                }
-                return callback(self.simpleSuccess('Registration request complete',options));
-            });    
+            articles = JSON.parse(content);
+            return callback(self.simpleSuccess('Successfully loaded articles',articles));
         });
     }
 

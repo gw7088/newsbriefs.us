@@ -1,70 +1,70 @@
+.nopadding {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
 .View.WelcomeView{
-    background: url("/images/money.jpeg") no-repeat center;
-    background-size: cover;
+  background-color: white;
 }
 
-/** Title Font */
-.enter-title{
-    text-align: center;
-    /* margin-bottom: 30px; */
-    color: gold;
-    font-weight: bolder;
-}
-.text-responsive {
-    font-size: calc(100% + 1vw + 1vh);
-}
-.timeBox{
-  background-color: rgb(41 153 41 / .65);
-  border-radius: 15px;
-  border: var(--ui-shadow-border);
-  box-shadow: var(--ui-shadow);
-  width: 35vh;
-  display: none;
-}
-.time {
-  font-family: math;
-  font-weight: bold;
-  color: #6b2106;
-}
-
-
-/** Form styling */
-.form-enter {
-  width: 100%;
-  max-width: 330px;
+/* @media only screen and (min-width: 768px) {
+  .item {
+      margin-left: 0;
+      margin-right: 0;
+  }
+} */
+.item {
+  clear: both;
+  margin: 15px;
   padding: 15px;
-  margin: auto;
-  background-color: rgb(41 153 41 / .65);
-  border-radius: 15px;
+  /* border: 1px solid #e0e0e0; */
+  background: #fff;
   border: var(--ui-shadow-border);
   box-shadow: var(--ui-shadow);
+}
+.item .item-info>:last-child {
+  margin-bottom: 0;
+}
 
+
+/* @media only screen and (min-width: 768px)
+.item.has-image .item-info {
+    float: left;
+    width: 58.333%;
+    padding-right: 15px;
+} */
+.item .item-info {
+  margin-bottom: 15px;
 }
-.form-enter .checkbox {
+
+
+.slug {
+  /**font-size: 14px;*/
+  font-size: 1.4rem;
+  color: #767676;
+  font-family: "Knockout 31 4r",HelveticaNeue-CondensedBold,Helvetica,Arial,sans-serif;
   font-weight: 400;
+  letter-spacing: 1.08px;
+  text-transform: uppercase;
+  clear: left;
+  margin-bottom: 8px;
 }
-.form-enter .form-control {
-  position: relative;
-  box-sizing: border-box;
-  height: auto;
-  padding: 10px;
-  font-size: 16px;
+
+
+.item .title {
+  margin-bottom: 5px;
+  font-weight: bold;
+  font-size: 18px;
+  font-size: 1.8rem;
+  line-height: 1.1;
 }
-.form-enter .form-control:focus {
-  z-index: 2;
-}
-.form-enter input[type="email"] {
-  margin-bottom: -1px;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.form-enter input[type="password"] {
-  margin-bottom: 10px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-}
-.form-enter .submit{
-    background-color:#2753a5; 
-    color:white;
-    font-weight: bold;
+
+
+.item .teaser {
+  font-size: 13px;
+  font-size: 1.3rem;
+  color: #333;
+  line-height: 1.5;
+  font-family: "Gotham SSm",Helvetica,Arial,sans-serif;
+  font-weight: 400;
 }

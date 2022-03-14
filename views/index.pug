@@ -1,58 +1,21 @@
 extends layout
 
 block layout-content
-  .container-fluid.View.WelcomeView
+  .container-fluid.View.WelcomeView.nopadding
+    .container-fluid.nopadding
+      .row.justify-content-center.text-center
+        .h1.m-1.p-1(style="font-weight:bold; color:#4743b1; font-family:auto;") News Briefs
+    .container-fluid.nopadding
+      .row.justify-content-center.p-4(style="background-color:#41464b;")
+        .h1(style="position: absolute; top: 0; margin-top: 0.25rem; padding-top: 0.25rem;") 📰
+    .container-fluid.nopadding
+      .row.justify-content-center.border-top.border-bottom.p-2.mt-3
+        .col.col-md-6
+          .h1(style="font-weight:bold; margin-left:15px; color:#41464b; font-family:auto;") News
+      .row.justify-content-center
+        .col.col-md-6
+          .news-articles
 
-    .container-fluid
-      .row.Banner.text-center
-        .col-2
-          div.h1 👑 
-        .col-8
-          div.h1 Victory Sweepstakes
-        .col-2
-          div.h1 👑 
-
-    .container-fluid.mt-1
-      .row.text-center(style="display:grid; color:black;")
-        h3 Will you be the Next
-      .row.text-center(style="display:grid; color:black;")
-        h3 Winner?
-    .container-fluid.text-center.mt-2
-      .row
-        h2.enter-title Ⓔⓝⓣⓔⓡ ⓣⓞ ⓦⓘⓝ
-      .row
-        h1.enter-title $ 5,000.00
-    .container-fluid.timeBox.mt-3.mb-2
-      .row.text-center(style="display:grid; color:black;")
-        h2.time#time
-    .container-fluid
-      .row
-        form(class="form-enter")
-              .row
-                #error
-                  if error
-                      p.text-danger Error!!!
-                - var h1Classes = ['h3', 'mb-3', 'font-weight-normal', 'text-center']
-                h1(class=h1Classes style="color:gold;") Fill In Form To Enter
-              //- Input Email
-              .row.m-1
-                // label( for="inputEmail" class="sr-only") Email Address
-                input(type="email" name="username" id="inputEmail" class="form-control" placeholder="Email Address" required).emailField
-              //- Input Phone
-              .row.m-1
-                // label(for="inputPhone" class="sr-only") Phone
-                input(type="phone" name="phone" id="inputPhone" class="form-control mt-1" placeholder="Phone" required).phoneField
-              .row.m-1
-                //- Complete form button
-                - var buttonClass=['btn', 'btn-lg', 'btn-block', 'mt-3'];
-                button.submit(class=buttonClass type="button")  Confirm Entry
-              .row
-                label(for="checkbox" style="font-size:small; margin:5px;")
-                  input(type="checkbox", name="checkboxname", data-parameter="valid" value="value" style="margin-right:3px;" required).agreeCheckbox
-                  | Over the age of 18
-              .row
-                - var pClasses=['mt-4', 'mb-1', 'text-white', 'text-center'];
-                p(class=pClasses) © 2022
         
   link(rel='stylesheet', href='/stylesheets/index.css', type='text/css')
   script(src="/javascripts/index.js")

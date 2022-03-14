@@ -126,9 +126,9 @@ function initUserConnection(socket){
 				socket.emit('got user information',response);
 			});
 		})
-		.on('register user',function(data){
-			admin.register_user(data,response =>{
-				socket.emit('user registered',response);
+		.on('load articles',function(data){
+			admin.load_articles(data,response =>{
+				socket.emit('articles loaded',response);
 			});
 		})
 	  ;
@@ -201,7 +201,7 @@ function createScheduledTask(method,schedule){
 		case 'days': case 'day': case 'd': case 'ds': case 'daily': case 'dayly':
 			schedule='0 0 9 * * *'; break;
 		case 'weeks': case 'week': case 'wk': case 'wks': case 'weekly':
-			schedule='0 0 9 0 * 0'; break;
+			schedule='30 4 * * 3 *'; break;
 		case 'months': case 'month': case 'mo': case 'mos': case 'monthly':
 			schedule='0 0 9 0 * *'; break;
 	}

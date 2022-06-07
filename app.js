@@ -136,13 +136,35 @@ function initUserConnection(socket){
 
 
 /**
- * Runs every other minute
+ * Runs every second
+ */
+function doEverySecond(){
+	// console.log('Do Every second! ('+new Date().getSeconds()+')');
+}
+
+
+/**
+ * Runs every day
+ */
+function doEveryDay(){
+	// console.log('Do Every day! ('+new Date().getSeconds()+')');
+
+	let bool = Math.floor(Math.random() * (1 - 0 + 1) + 0);
+	if(bool==1){
+		// Updates articles to use
+		admin.grab_news_data_npr();
+	}
+}
+
+
+/**
+ * Runs every week
  */
 function doEveryWeek(){
-	// console.log('Do Every Minute! ('+new Date().getSeconds()+')');
+	// console.log('Do Every week! ('+new Date().getSeconds()+')');
 
-	// Updates articles to use
-	admin.grab_news_data_npr();
+	// // Updates articles to use
+	// admin.grab_news_data_npr();
 }
 
 
@@ -162,8 +184,8 @@ function createScheduledTasks() {
 	// createScheduledTask(doEveryHour2,'hr2');
 	// createScheduledTask(doEveryHourAlternate,'0 50 * * * *');
 	// createScheduledTask(doEveryHour10After,'10 * * * *');
-	// createScheduledTask(doEveryDay,'d');
-	createScheduledTask(doEveryWeek,'wk');
+	createScheduledTask(doEveryDay,'d');
+	// createScheduledTask(doEveryWeek,'wk');
 	// createScheduledTask(doEveryMonth,'mo');
 }
 
@@ -216,6 +238,7 @@ function createScheduledTask(method,schedule){
 	// console.log(`Created task with schedule ${schedule}.`);
 	return true;
 }
+
 
 const justTesting = async () => {
 	// let test = await admin.grab_news_data_npr({});

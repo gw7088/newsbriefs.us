@@ -164,6 +164,25 @@ module.exports = class Admin extends Utils{
             if(!articles[i]) articles[i] = article;
         }
 
+        // Final logic to remove (Got News Tips?) error...
+        let flag=false;
+        let numArticles = Object.keys(articles).length - 1;
+        for(var i in articles){
+
+            // Look for dreaded "news tip"
+            if(articles[i].topic.includes('News Tip?')){
+                flag = true;
+            }
+
+            // News tip detected... Must swap articles.
+            if(flag && parseInt(i)!=numArticles){
+                articles[i].topic = articles[parseInt(i)+1].topic;
+                articles[i].teaser = articles[parseInt(i)+1].teaser;
+            }
+        }
+        delete articles[numArticles]; // Remove last article since its unfixable...
+
+        // Write file now
         let jsonArticles = JSON.stringify(articles);
         fs.writeFile(path.resolve('articles.json'), jsonArticles, 'utf8', function (err) {
             if (err) {

@@ -26,8 +26,6 @@ html
       gtag('js', new Date());
       gtag('config', 'G-Z1TCV8EM1M');
   body
-    //div#overlay(onclick="off()")
-    //  div#text Click the "Allow" button to enter
     div#root
       block layout-content
 
@@ -35,41 +33,3 @@ html
     script(src="/javascripts/izitoast.js" type="text/javascript")
     script.
       moment.tz.add(['America/New_York|EST EDT|50 40|0101|1Lz50 1zb0 Op0']);
-
-    style.
-      #overlay {
-        position: fixed; /* Sit on top of the page content */
-        display: none; /* Hidden by default */
-        width: 100%; /* Full width (cover the whole page) */
-        height: 100%; /* Full height (cover the whole page) */
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0,0,0,0.6); /* Black background with opacity */
-        z-index: 2; /* Specify a stack order in case you're using a different order for other elements */
-        cursor: pointer; /* Add a pointer on hover */
-      }
-      #text{
-        padding: 5px;
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        font-size: 33px;
-        color: whitesmoke;
-        transform: translate(-50%,-50%);
-        -ms-transform: translate(-50%,-50%);
-        text-align: center;
-        font-family: ui-monospace;
-        font-weight: 900;
-        background: #80808061;
-        border-radius: 20px;
-      }
-    
-    script.
-      function on() {
-        document.getElementById("overlay").style.display = "block";
-      }
-      function off() {
-        document.getElementById("overlay").style.display = "none";
-      }

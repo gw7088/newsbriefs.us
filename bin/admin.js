@@ -106,7 +106,8 @@ module.exports = class Admin extends Utils{
         let page = await browser.newPage();
 
         await page.setViewport({ width: 1100, height: 800 })
-        await page.goto(`https://www.npr.org/sections/news/`,{waitUntil:'networkidle0'});
+        // await page.goto(`https://www.npr.org/sections/news/`,{waitUntil:'networkidle0'});
+        await page.goto(`https://www.npr.org/sections/news/`);
 
         await page.waitForSelector('#overflow');
 
@@ -189,6 +190,7 @@ module.exports = class Admin extends Utils{
                 console.log(err);
                 return 'false';
             }
+            return 'done'
         });    
     }
 }
